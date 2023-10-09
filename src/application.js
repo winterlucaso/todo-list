@@ -1,12 +1,22 @@
 function createHeader() {
     const header = document.createElement('header');
-    header.innerText = "header";
+    header.innerText = "To-Do Tracker";
     return header;
 }
 
 function createNav() {
     const nav = document.createElement('nav');
     nav.innerText = "nav";
+
+    const createTaskBtn = document.createElement('button');
+    createTaskBtn.classList.add('add-task-btn');
+    createTaskBtn.innerText = "+";
+    nav.appendChild(createTaskBtn);
+    nav.addEventListener("click", (e) => {
+        // loadHome();
+        console.log("hello");
+    })
+
     return nav;
 }
 
