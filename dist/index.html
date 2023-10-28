@@ -4,11 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
     <title>Todo List</title>
 </head>
-<body>
-    <div id="body">
-        <script src="main.js"></script>
-    </div>
+<body id="body">
+    <header>Header</header>
+    <nav>
+        <button id="add-task-btn">+</button>
+        <dialog id="task-modal">
+            <form id="form" action="#" method="GET">
+                <label for="task-title">Title: </label>
+                <input type="text" id="task-title" name="task-title">
+                <div id="title-error" class="error-message"></div>
+
+                <label for="task-description">Description: </label>
+                <input type="text" id="task-description" name="task-description">
+                <div id="description-error" class="error-message"></div>
+        
+                <label for="task-date">Date: </label>
+                <input type="text" id="task-date" name="task-date">
+                <div id="date-error" class="error-message"></div>
+
+                <label for="task-priority">Priority: </label>
+                <input type="text" id="task-priority" name="task-priority">
+                <div id="priority-error" class="error-message"></div>
+        
+                <label for="task-projects">Projects: </label>
+                <input type="checkbox" id="task-projects" name="task-projects">
+
+                <div id="cancel-and-submit-btns">
+                    <button type="button" value="cancel" formmethod="dialog" id="cancelBtn">Cancel</button>
+                    <button type="submit" form="form" id="confirmBtn">Confirm</button>
+                </div>
+            </form>
+        </dialog> 
+    </nav>
+    <main>Main</main>
+    <footer>Footer</footer>
 </body>
 </html>
