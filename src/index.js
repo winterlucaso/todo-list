@@ -9,6 +9,8 @@ const addTaskBtn = document.getElementById('add-task-btn');
         // toDoList.addTask(createTask("do ur laundry", "today"));
     })
 
+const taskContainer = document.getElementById("task-container");
+
 const taskTitle = document.getElementById("task-title");
 const taskDescription = document.getElementById("task-description");
 const taskDate = document.getElementById("task-date");
@@ -37,18 +39,17 @@ form.addEventListener('submit', (e) => { // form submit EventListener
         );
 
         toDoList.addTask(task);
+        addTaskToDOM(task);
 
         clearFormInputs();
 
         taskModal.close(); // Close modal
-        console.log("Modal Closed");
     };
 });
 
 cancelBtn.addEventListener('click', (e) => { // cancelBtn EventListener
     clearFormInputs();
     taskModal.close();
-    console.log("Modal Cancelled");
 });
 
 function validateInputs() { // Return false if there are errors
@@ -121,6 +122,34 @@ class ToDoList {
     }
 }
 
+function addTaskToDOM(task) {
+    console.log("Adding task to DOM");
+
+    const taskArticle = document.createElement('article');
+    taskArticle.classList.add('task-article');
+    taskContainer.appendChild(taskArticle);
+
+    const articleTitle = document.createElement('h3');
+    articleTitle.innerText = task.title;
+    taskArticle.appendChild(articleTitle);
+
+    const articleDescription = document.createElement('div');
+    articleDescription.innerText = task.description;
+    taskArticle.appendChild(articleDescription);
+
+    const articleDate = document.createElement('div');
+    articleDate.innerText = task.date;
+    taskArticle.appendChild(articleDate);
+
+    const articlePriority = document.createElement('div');
+    articlePriority.innerText = task.priority;
+    taskArticle.appendChild(articlePriority);
+
+    const articleProjects = document.createElement('div');
+    articleProjects.innerText = task.project;
+    taskArticle.appendChild(articleProjects);
+}
+
 // class Project {
 //     constructor () {
 //         this.list = [];
@@ -139,8 +168,14 @@ class ToDoList {
 
 const toDoList = new ToDoList();
 
-toDoList.addTask(createTask("Laundry", "do ur laundry", "today", "low"));
-toDoList.addTask(createTask("Taxes", "pay ur taxes", "tomorrow", "high"));
+const sampleTask1 = createTask("Laundry", "do ur laundry", "today", "low", "on");
+toDoList.addTask(sampleTask1);
+addTaskToDOM(sampleTask1);
+
+
+const sampleTask2 = createTask("Taxes", "pay ur taxes", "tomorrow", "high", "off");
+toDoList.addTask(sampleTask2);
+addTaskToDOM(sampleTask2);
 
 
 // For specific categories, filter from the main array to fill the new category

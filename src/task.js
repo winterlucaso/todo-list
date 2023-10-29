@@ -1,11 +1,12 @@
-export const createTask = (title, description, date, priority) => {
+export const createTask = (title, description, date, priority, project) => {
 	console.log("Creating Task...");
-    console.log({title, description, date, priority});
+    console.log({title, description, date, priority, project});
 
 	return { 
         title,
         description, 
         date,
-        priority
+        priority,
+        project
     };
 };
